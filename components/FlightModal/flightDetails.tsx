@@ -8,11 +8,21 @@ import {
 } from "./flightDetails.styles";
 import { useTranslation } from "next-i18next";
 
+/**
+ * Represents the contents of the flight modal
+ * @param props
+ * @returns
+ */
+
 export default function FlightDetails(props: any) {
   const { t } = useTranslation("common");
   return (
     <Container>
       <ModalTitle>{props.airline}</ModalTitle>
+      <LabelSection>
+        <InfoLabel>Flight Num</InfoLabel>
+        <InfoLabel>{props.flightNumber}</InfoLabel>
+      </LabelSection>
       <LabelSection>
         <InfoLabel>{t("from")}</InfoLabel>
         <InfoLabel>{props.departureAirport}</InfoLabel>
@@ -23,11 +33,11 @@ export default function FlightDetails(props: any) {
       </LabelSection>
       <LabelSection>
         <InfoLabel>{t("dep-time")}</InfoLabel>
-        <InfoLabel>{props.takeoff}</InfoLabel>
+        <InfoLabel>{props.takeoff}h</InfoLabel>
       </LabelSection>
       <LabelSection>
         <InfoLabel>{t("arr-time")}</InfoLabel>
-        <InfoLabel>{props.landing}</InfoLabel>
+        <InfoLabel>{props.landing}h</InfoLabel>
       </LabelSection>
       <LabelSection>
         <InfoLabel>{t("duration")}</InfoLabel>

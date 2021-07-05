@@ -27,6 +27,12 @@ interface AppState {
   flight_results: Array<FlightData>;
 }
 
+/**
+ * Represents the search bar component to find flights
+ * @constructor
+ * @param props
+ */
+
 class SearchBar extends React.Component<any, AppState> {
   constructor(props: any) {
     super(props);
@@ -113,6 +119,7 @@ class SearchBar extends React.Component<any, AppState> {
           return (
             <FlightBlock
               airline={item.airline}
+              flightNumber={item.flightNumber}
               takeoff={item.takeoff}
               landing={item.landing}
               departureAirport={item.departureAirport}

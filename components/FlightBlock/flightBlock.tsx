@@ -9,13 +9,26 @@ import {
   InfoLabel,
 } from "./flightBlock.styles";
 import Image from "next/image";
-import AirlineImg from "../../public/Air-France-logo.png";
+import AirFranceImg from "../../public/Air-France-logo.png";
+import LufthansaImg from "../../public/Lufthansa-Logo.png";
 import IconImg from "../../public/flight.png";
+
+/**
+ * Represents flight block components generated onclick of search flights on search bar
+ * with corresponding flight results.
+ * @param props
+ * @returns
+ */
 
 export default function FlightBlock(props: any) {
   return (
     <Wrapper>
-      <Image src={AirlineImg} alt="airline" height={80} width={120}></Image>
+      <Image
+        src={props.airline === "Air France" ? AirFranceImg : LufthansaImg}
+        alt="airline"
+        height={80}
+        width={120}
+      ></Image>
       <FlightLabel>{props.airline}</FlightLabel>
       <FlightWrapper>
         <FlightInfo>
@@ -36,6 +49,7 @@ export default function FlightBlock(props: any) {
         <FlightLabel>{props.price} €</FlightLabel>
         <FlightModal
           airline={props.airline}
+          flightNumber={props.flightNumber}
           takeoff={props.takeoff}
           landing={props.landing}
           departureAirport={props.departureAirport}

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactModal from "react-modal";
 import FlightDetails from "./flightDetails";
 import {
   ModalWrapper,
@@ -11,7 +10,13 @@ import {
 } from "./flightModal.styles";
 import { withTranslation } from "next-i18next";
 
-class FlightModal extends React.Component<any> {
+/**
+ * Represents the modal with flight details onlick of select button from flightBlock
+ * @constructor
+ * @param props
+ */
+
+class FlightModal extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -42,6 +47,7 @@ class FlightModal extends React.Component<any> {
         <Modal isOpen={this.state.showModal} contentLabel="Flight Details">
           <FlightDetails
             airline={this.props.airline}
+            flightNumber={this.props.flightNumber}
             takeoff={this.props.takeoff}
             landing={this.props.landing}
             departureAirport={this.props.departureAirport}

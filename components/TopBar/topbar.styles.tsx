@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import Link from "next/link";
 
 export const NavBarContainer = styled.div`
   height: inherit;
@@ -18,4 +17,9 @@ export const Name = styled.span`
   color: #2c3e50;
   font-size: x-large;
   font-family: "Franklin Gothic Medium";
+`;
+
+export const LanguageLink = styled(Link)`
+  font-size: 22px;
+  color: #1d8cfa;
 `;

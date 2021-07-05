@@ -6,13 +6,10 @@ import { Container, Main, Footer } from "../styles/home.styles";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
-    },
-  };
-}
+/**
+ * Home page of the application
+ * @returns
+ */
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -35,4 +32,16 @@ export default function Home() {
       </Footer>
     </Container>
   );
+}
+
+interface Props {
+  locale: string;
+}
+
+export async function getStaticProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "footer"])),
+    },
+  };
 }
